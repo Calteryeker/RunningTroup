@@ -1,0 +1,68 @@
+* {
+    font-family: Lucida Sans, Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #64a763;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("./images/running.png");
+    
+}
+
+.bg {
+    background-color:#539091;
+    padding: 10px;
+
+    width: 80vw;
+    height: 70vh;
+    text-align: center;
+    font-size: 2em;
+    border: #5590A2 solid 3px;
+    border-radius: 2%;
+
+    margin-top: 100px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bg h2 {
+    display: inline;
+    font-size: 3em;
+}
+
+.bg img{
+    display: inline;
+    width: 100px;
+    height: 100px;
+    margin-top: 50px;
+}
+#inicio {
+    position: absolute;
+    left: 10px;
+
+    height: 75px;
+    width: 90px;
+    margin: 5px;
+
+    text-align: center;
+    font-size: 2em;
+}
+
+#ranking{
+    display: flex;
+    flex-direction: row;
+    font-size: 2.5em;
+    width: 100%;
+    justify-content: space-around;
+    color:  white;
+}
+#top_five{
+    left: 20vw;
+}
+td {
+    display: block;
+}

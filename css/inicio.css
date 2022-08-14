@@ -1,0 +1,46 @@
+#botoes_group {
+    margin-top: 100px;
+
+    width: 300px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#botoes_group button{
+    width: 100%;
+    height: 70px;
+    margin: 5px;
+
+    text-align: center;
+    font-size: 2em;
+}
+
+#botoes_group button:focus{
+    background-color: #539091;
+}
+
+#btt_jogar.focus{
+    background-color: #539091;
+}
+
+#btt_jogar:hover{
+    background-color: #698b9d;
+}
+
+#logout{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+
+    height: 30px;
+    margin: 5px;
+
+    text-align: center;
+    font-size: 1.2em;
+}
+
+footer {
+    visibility: hidden;
+}

@@ -1,0 +1,46 @@
+* {
+    font-family: Lucida Sans, Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #64a763;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("./images/running.png");
+    
+}
+
+.title {
+    background-color:#539091;
+    padding: 10px;
+
+    width: 40%;
+    height: 100px;
+    text-align: center;
+    font-size: 2em;
+    border: #5590A2 solid 3px;
+    border-radius: 2%;
+
+    margin-top: 100px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title h1 {
+    display: inline;
+    height: 75px;
+}
+
+.title img{
+    display: inline;
+    width: 50px;
+    height: 50px;
+}
+
+footer {
+    visibility: hidden;
+}

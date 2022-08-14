@@ -1,0 +1,44 @@
+#inicio {
+    position: absolute;
+    left: 10px;
+
+    height: 30px;
+    margin: 5px;
+
+    text-align: center;
+    font-size: 1.2em;
+}
+
+#options {
+    margin-top: 20px;
+
+    width: 400px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+p{
+    margin-top: 75px;
+    text-align: center;
+    font-size: 2em;
+    color: #ffffff;
+}
+
+#options button{
+    width: 100%;
+    height: 75px;
+    margin: 5px;
+
+    text-align: center;
+    font-size: 1.8em;
+}
+
+#solo{
+    background-color: #539091;
+}
+
+#options button:focus{
+    background-color: #8abbd5;
+}
+
