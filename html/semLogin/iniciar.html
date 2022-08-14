@@ -10,10 +10,20 @@
 
     <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
     <link rel="stylesheet" type="text/css" href="../../css/inicio.css"/>
-    <script src="js/main.js"></script>
+    <script src="../../js/main.js"></script>
 </head>
 
-<body>
+<body onload="focarLoad('btt_jogar')">
+    <script>
+        document.addEventListener('keydown', (e)=>{
+            if(e.keyCode == 38){
+                focoUp();
+            }
+            else if(e.keyCode == 40){
+                focoDown();
+            }
+        })
+    </script>
     <div class="title">
         <img src="../../images/running.png" alt="Homem Correndo">
         <h1>
@@ -22,9 +32,9 @@
         <img src="../../images/running.png" alt="Homem Correndo">
     </div> 
     <div id="botoes_group">
-        <button>Cadastrar</button>
-        <button>Logar</button>
-        <button id="btt_jogar" class="focus">Jogar</button>
+        <button tabindex="0" onclick="goCadastrar()" class="navigate">Cadastrar</button>
+        <button tabindex="1" onclick="goLogar()" class="navigate">Logar</button>
+        <button id="btt_jogar" tabindex="2" onclick="goJogar()" class="navigate">Jogar</button>
     </div>
 
 </body>

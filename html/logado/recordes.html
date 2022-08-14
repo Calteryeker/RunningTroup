@@ -10,11 +10,11 @@
 
     <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
     <link rel="stylesheet" type="text/css" href="../../css/leaderboard.css"/>
-    <script src="js/main.js"></script>
+    <script src="../../js/main.js"></script>
 </head>
 
-<body>
-    <button id="inicio">Início</button>
+<body onload="focarLoad('inicio')">
+    <button id="inicio" onclick="history.back()">Início</button>
     <div class="bg">
         <img src="../../images/high-score.png"></img>
         <h2>

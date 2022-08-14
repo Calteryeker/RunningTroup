@@ -1,57 +1,69 @@
-var checkTime;
+function focarLoad(id){
+    document.getElementById(id).focus()
+}
 
-//Initialize function
-var init = function () {
-    // TODO:: Do your initialization job
-    console.log('init() called');
-    
-    document.addEventListener('visibilitychange', function() {
-        if(document.hidden){
-            // Something you want to do when hide or exit.
-        } else {
-            // Something you want to do when resume.
+
+function focoUp(){
+    focused = document.activeElement;
+    elementsNav = document.getElementsByClassName('navigate');
+    for(var i = 0; i < elementsNav.length; i++){
+        if(elementsNav[i].tabIndex == focused.tabIndex-1){
+            elementsNav[i].focus();
+
         }
-    });
- 
-    // add eventListener for keydown
-    document.addEventListener('keydown', function(e) {
-    	switch(e.keyCode){
-    	case 37: //LEFT arrow
-    		break;
-    	case 38: //UP arrow
-    		break;
-    	case 39: //RIGHT arrow
-    		break;
-    	case 40: //DOWN arrow
-    		break;
-    	case 13: //OK button
-    		break;
-    	case 10009: //RETURN button
-		tizen.application.getCurrentApplication().exit();
-    		break;
-    	default:
-    		console.log('Key code : ' + e.keyCode);
-    		break;
-    	}
-    });
-};
-// window.onload can work without <body onload="">
-window.onload = init;
-
-function startTime() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    m = checkTime(m);
-    s = checkTime(s);
-    document.getElementById('divbutton1').innerHTML='Current time: ' + h + ':' + m + ':' + s;
-    setTimeout(startTime, 10);
-}
-
-function checkTime(i) {
-    if (i < 10) {
-        i='0' + i;
     }
-    return i;
+
 }
+function focoDown(){
+    focused = document.activeElement;
+    elementsNav = document.getElementsByClassName('navigate');
+    for(var i = 0; i < elementsNav.length; i++){
+        if(elementsNav[i].tabIndex == focused.tabIndex+1){
+            elementsNav[i].focus();
+        }
+    }
+}
+
+function goEntrar(endgame){
+    if(endgame){
+        document.cookie ? window.location.assign('../logado/iniciar.html') 
+        : window.location.assign('../semLogin/iniciar.html')
+    }
+    else{
+        document.cookie ? window.location.assign('html/logado/iniciar.html') 
+        : window.location.assign('html/semLogin/iniciar.html')
+    }
+    
+}
+
+function goCadastrar(){
+    window.location.assign('../cadastar.html')
+}
+function goLogar(){
+    window.location.assign('../logar.html')
+}
+
+function goLeaderboard(){
+    window.location.assign('./leaderboard.html')
+}
+function goRecordes(){
+    window.location.assign('./recordes.html')
+}
+
+function goJogar(){
+    window.location.assign('../jogar/modo.html')
+}
+function goNumPlayers(){
+    window.location.assign('./num_players.html')
+}
+
+function logar(){
+
+}
+function cadastrar(){
+
+}
+function salvarPlacar(){
+
+}
+

@@ -7,15 +7,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url("./images/running.png");
-    
+    background-image: url("../images/running.png");
+    background-size: 150px;
 }
 
 .title {
     background-color:#539091;
     padding: 10px;
 
-    width: 40%;
+    width: 40vw;
     height: 100px;
     text-align: center;
     font-size: 2em;
@@ -39,6 +39,15 @@ body {
     display: inline;
     width: 50px;
     height: 50px;
+}
+
+.navigate{
+    outline: none;
+}
+
+.navigate:focus{
+    outline: none;
+    background-color: #539091;
 }
 
 footer {

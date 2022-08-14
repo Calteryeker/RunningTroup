@@ -10,11 +10,21 @@
 
     <link rel="stylesheet" type="text/css" href="../css/base.css"/>
     <link rel="stylesheet" type="text/css" href="../css/forms.css"/>
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
 </head>
 
-<body>
-    <button id="inicio">Início</button>
+<body onload="focarLoad('ipt_inicio')">
+    <script>
+        document.addEventListener('keydown', (e)=>{
+            if(e.keyCode == 38){
+                focoUp();
+            }
+            else if(e.keyCode == 40){
+                focoDown();
+            }
+        })
+    </script>
+    <button tabindex="0" class="navigate" id="inicio" onclick="history.back()">Início</button>
     <div class="title">
         <img src="../images/running.png" alt="Homem Correndo">
         <h1>
@@ -23,10 +33,10 @@
         <img src="../images/running.png" alt="Homem Correndo">
     </div>
     <div id="form">
-        <input placeholder="Usuário"></input>
-        <input type="password" placeholder="Senha"></input>
-        <input type="password" placeholder="Confirmar Senha"></input>
-        <button>Enviar</button>
+        <input id="ipt_inicio" tabindex="1" class="navigate" placeholder="Usuário"></input>
+        <input tabindex="2" class="navigate" type="password" placeholder="Senha"></input>
+        <input tabindex="3" class="navigate" type="password" placeholder="Confirmar Senha"></input>
+        <button tabindex="4" class="navigate">Enviar</button>
     </div>
 
 </body>

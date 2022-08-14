@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta lang="pt-BR"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta name="description" content="RunningTroup Game for TV"/>
+  <meta charset="utf-8" />
+  <meta lang="pt-BR"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="RunningTroup Game for TV"/>
 
-    <title>RunningTroup</title>
+  <title>RunningTroup</title>
 
-    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
-    <link rel="stylesheet" type="text/css" href="../../css/gameover.css"/>
+  <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+  <link rel="stylesheet" type="text/css" href="../../css/gameover.css"/>
     <script src="js/main.js"></script>
 </head>
 
-<body>
+<body onload="focarLoad('btt_jogar')">
+  <script>
+    document.addEventListener('keydown', (e)=>{
+      if(e.keyCode == 37){
+        focoUp();
+      }
+      else if(e.keyCode == 39){
+        focoDown();
+      }
+    })
+  </script>
   <div id="results">
     <p>Fim de Jogo!</p>
     <p id="pontuação">Vencedor foi: Jogador X - XXXXXX</p>
     <table id="ranking">
-        <tr>
-            <td>1. Jogador 1 - XXXXXX</td>
-            <td>2. Jogador 2 - XXXXXX</td>
-            <td>3. Jogador 3 - XXXXXX</td>
-            <td>4. Jogador 4 - XXXXXX</td>
-        </tr>
+      <tr>
+        <td>1. Jogador 1 - XXXXXX</td>
+        <td>2. Jogador 2 - XXXXXX</td>
+        <td>3. Jogador 3 - XXXXXX</td>
+        <td>4. Jogador 4 - XXXXXX</td>
+      </tr>
 
     </table>
     <div id="botoes">
-        <button>Início</button>
-        <button>Jogar Novamente</button>
+      <button tabindex="0" class="navigate" onclick="goEntrar(true)">Início</button>
+      <button id="btt_jogar" tabindex="1" class="navigate">Jogar Novamente</button>
     </div>
   </div>
 

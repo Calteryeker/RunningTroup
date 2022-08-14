@@ -34,11 +34,3 @@ p{
     font-size: 1.8em;
 }
 
-#solo{
-    background-color: #539091;
-}
-
-#options button:focus{
-    background-color: #8abbd5;
-}
-

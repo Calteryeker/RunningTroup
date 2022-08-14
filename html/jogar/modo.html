@@ -10,11 +10,21 @@
 
     <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
     <link rel="stylesheet" type="text/css" href="../../css/options.css"/>
-    <script src="js/main.js"></script>
+    <script src="../../js/main.js"></script>
 </head>
 
-<body>
-    <button id="inicio">Início</button>
+<body onload="focarLoad('solo')">
+    <script>
+        document.addEventListener('keydown', (e)=>{
+            if(e.keyCode == 38){
+                focoUp();
+            }
+            else if(e.keyCode == 40){
+                focoDown();
+            }
+        })
+    </script>
+    <button id="inicio" tabindex="0" class="navigate" onclick="history.back()">Início</button>
     <div class="title">
         <img src="../../images/running.png" alt="Homem Correndo">
         <h1>
@@ -25,8 +35,8 @@
     <p>Selecione o modo de Jogo:</p>
     <div id="options">
         
-        <button id="solo">Solo</button>
-        <button id="multi">Multijogador</button>
+        <button id="solo" tabindex="1" class="navigate">Solo</button>
+        <button id="multi" tabindex="2" class="navigate" onclick="goNumPlayers()">Multijogador</button>
     </div>
     
 </body>

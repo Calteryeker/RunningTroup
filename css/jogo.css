@@ -12,6 +12,7 @@ body {
 }
 
 #jogo {
+    position: relative;
     background-color: gainsboro;
     border: solid 5px #539091;
     margin-top: 15px;
@@ -22,12 +23,12 @@ body {
 }
 
 #jogo div {
-    position: relative;
+    position: absolute;
 }
 
 #placar{
     display: inline;
-    position: relative;
+    position: absolute;
 
     top: 3vh;
     left: 65vw;
@@ -37,6 +38,7 @@ body {
 }
 
 #personagem{
+    position: absolute;
     background-color: red;
     width: 8vw;
     height: 20vh;
@@ -81,7 +83,7 @@ body {
     height: 20vh;
 
     left: 78vw;
-    top: 25vh;
+    top: 70vh;
 
     animation: obstaculo 3s infinite linear;
 }
@@ -92,7 +94,7 @@ body {
     height: 15vh;
 
     left: 80vw;
-    top:45vh;
+    top:75vh;
     z-index: 1;
 
     animation: obstaculo 2s infinite linear;
@@ -105,7 +107,7 @@ body {
     height: 10vh;
 
     left: 82vw;
-    top: 60vh;
+    top: 80vh;
     z-index: 2;
 
     animation: obstaculo 1s infinite linear;

@@ -1,11 +1,18 @@
 .msg {
-    margin-top: 200px;
+    margin-top: 50vh;
 
 }
 
-p {
+button {
     color: #ffffff;
-    font-size: 1.8em;
+    font-size: 3em;
+    background-color: transparent;
+    border: none;
+    text-decoration: none;
+}
+
+button:focus{
+    outline: none;
 }
 
 footer {

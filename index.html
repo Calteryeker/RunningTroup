@@ -13,7 +13,7 @@
     <script src="js/main.js"></script>
 </head>
 
-<body>
+<body onload="focarLoad('next')">
   <div class="title">
     <img src="./images/running.png" alt="Homem Correndo">
     <h1>
@@ -21,10 +21,11 @@
     </h1>
     <img src="./images/running.png" alt="Homem Correndo">
   </div> 
-  <div class="msg">
-    <p>
-      Pressione ENTER no controle remoto para iniciar ...
-    </p>
+  <div class="msg" >
+    <button id="next" onclick="goEntrar()" >
+        Pressione ENTER no controle remoto para iniciar ...
+    </button>
+    
   </div>
 
 </body>
