@@ -14,6 +14,12 @@
 </head>
 
 <body onload="focarLoad('next')">
+  <script>
+    function start(){
+      document.cookie ? navigate('html/logado/iniciar.html') 
+      : navigate('html/semLogin/iniciar.html')
+    }
+  </script>
   <div class="title">
     <img src="./images/running.png" alt="Homem Correndo">
     <h1>
@@ -22,7 +28,7 @@
     <img src="./images/running.png" alt="Homem Correndo">
   </div> 
   <div class="msg" >
-    <button id="next" onclick="goEntrar()" >
+    <button id="next" onclick="start()" >
         Pressione ENTER no controle remoto para iniciar ...
     </button>
     

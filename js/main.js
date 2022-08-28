@@ -28,37 +28,9 @@ function navigate(path){
     window.location.assign(path)
 }
 
-function goEntrar(endgame){
-    if(endgame){
-        document.cookie ? window.location.assign('../logado/iniciar.html') 
-        : window.location.assign('../semLogin/iniciar.html')
-    }
-    else{
-        document.cookie ? window.location.assign('html/logado/iniciar.html') 
-        : window.location.assign('html/semLogin/iniciar.html')
-    }
-    
-}
-
-function goCadastrar(){
-    window.location.assign('../cadastar.html')
-}
-function goLogar(){
-    window.location.assign('../logar.html')
-}
-
-function goLeaderboard(){
-    window.location.assign('./leaderboard.html')
-}
-function goRecordes(){
-    window.location.assign('./recordes.html')
-}
-
-function goJogar(){
-    window.location.assign('../jogar/modo.html')
-}
-function goNumPlayers(){
-    window.location.assign('./num_players.html')
+function returnStart(){
+    document.cookie ? navigate('../logado/iniciar.html') 
+      : navigate('../semLogin/iniciar.html')
 }
 
 function logar(){

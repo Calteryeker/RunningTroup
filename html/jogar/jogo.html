@@ -29,9 +29,17 @@
     setTimeout(()=>{
       const params = new URLSearchParams(window.location.search)
 
-      params.has('mp') ? window.location.assign('./gameovermp.html?next='+(parseInt(params.get('mp'))+1)) : 
-      window.location.assign('./gameover.html?pontuacao='+pontuacao)
-    }, 10000)
+      if(params.has('num_players')){
+        params.get('num_players') !== params.get('actual') ? 
+        navigate('./gameovermp.html?num_players='+params.get('num_players')+'&next='+(parseInt(params.get('actual'))+1))
+         : navigate('./mpfinal.html')
+
+      }
+      else{
+        navigate('./gameover.html?pontuacao='+pontuacao)
+      }
+      
+    }, 5000)
 </script>
   <div id="jogo">
     <p id="placar">Pontuação: 000000</p>

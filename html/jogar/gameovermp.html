@@ -14,11 +14,18 @@
 </head>
 
 <body onload="focarLoad('btt_proximo')">
+  <script>
+    function nextPlayer(){
+      const params = new URLSearchParams(window.location.search)
+
+      navigate('./jogo.html?num_players='+params.get('num_players')+'&actual='+params.get('next'))
+    }
+  </script>
   <div id="results">
     <p>Você Perdeu!</p>
     <p id="pontuação">Sua pontuação: XXXXXX</p>
     <div id="botoes">
-      <button id="btt_proximo" class="navigate">Próximo</button>
+      <button id="btt_proximo" class="navigate" onclick="nextPlayer()">Próximo</button>
     </div>
   </div>
 
