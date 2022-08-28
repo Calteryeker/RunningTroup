@@ -7,8 +7,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url("../images/running.png");
-    background-size: 150px;
 }
 
 .title {
@@ -43,11 +41,11 @@ body {
 
 .navigate{
     outline: none;
+    border-radius: 5px;
 }
 
 .navigate:focus{
-    outline: none;
-    background-color: #539091;
+    outline: #539091 solid 5px;
 }
 
 footer {
