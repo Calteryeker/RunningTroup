@@ -12,7 +12,6 @@ function focoUp(){
 
         }
     }
-
 }
 function focoDown(){
     focused = document.activeElement;
@@ -22,6 +21,11 @@ function focoDown(){
             elementsNav[i].focus();
         }
     }
+}
+
+
+function navigate(path){
+    window.location.assign(path)
 }
 
 function goEntrar(endgame){
@@ -64,6 +68,14 @@ function cadastrar(){
 
 }
 function salvarPlacar(){
+
+}
+
+function gameOver(pontuacao){
+    window.location.assign('./gameover.html?pontuacao='+pontuacao)
+}
+
+function gameOverMP(player, pontuacao){
 
 }
 

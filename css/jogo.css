@@ -45,17 +45,18 @@ body {
 
     top: 70vh;
     left: 1vw;
-
-    animation: personagem 750ms infinite linear;
 }
 
-@keyframes personagem {
+.pulo{
+    animation: pulo 1000ms linear;
+}
+@keyframes pulo {
     0% {
         top: 70vh;
     }
     50%{
-        top: 40vh;
-    }
+        top: 25vh;
+    }   
     100%{
         top: 70vh;
     }

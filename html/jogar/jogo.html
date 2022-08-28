@@ -9,10 +9,30 @@
   <title>RunningTroup</title>
 
   <link rel="stylesheet" type="text/css" href="../../css/jogo.css"/>
-  <script src="js/main.js"></script>
+  <script src="../../js/main.js"></script>
+  <script src="../../js/jogo.js"></script>
 </head>
 
 <body onload="focarLoad('personagem')">
+  <script>
+    var canJump = true;
+    document.addEventListener('keydown', (e)=>{
+      if((e.keyCode == 38 || e.keyCode == 13) && canJump){
+        canJump = false;
+        pular();
+        setTimeout(() => {
+          canJump = true;
+        }, 1000)
+      }
+    })
+
+    setTimeout(()=>{
+      const params = new URLSearchParams(window.location.search)
+
+      params.has('mp') ? window.location.assign('./gameovermp.html?next='+(parseInt(params.get('mp'))+1)) : 
+      window.location.assign('./gameover.html?pontuacao='+pontuacao)
+    }, 10000)
+</script>
   <div id="jogo">
     <p id="placar">Pontuação: 000000</p>
     <div id="personagem"></div>
