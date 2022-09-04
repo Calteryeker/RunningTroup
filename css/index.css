@@ -1,6 +1,12 @@
 .msg {
     margin-top: 50vh;
+    animation: fadeMsg 4s ease-in infinite;
+}
 
+@keyframes fadeMsg {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 button {
@@ -18,3 +24,4 @@ button:focus{
 footer {
     visibility: hidden;
 }
+

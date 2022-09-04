@@ -13,10 +13,10 @@ body {
     background-color:#539091;
     padding: 10px;
 
-    width: 40vw;
-    height: 100px;
+    width: 50vw;
+    height: 200px;
     text-align: center;
-    font-size: 2em;
+    font-size: 2.5em;
     border: #5590A2 solid 3px;
     border-radius: 2%;
 
@@ -30,24 +30,44 @@ body {
 
 .title h1 {
     display: inline;
-    height: 75px;
+    height: 100px;
 }
 
 .title img{
     display: inline;
     width: 50px;
     height: 50px;
+    margin: 0 50px 0 50px;
 }
 
 .navigate{
     outline: none;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 .navigate:focus{
-    outline: #539091 solid 5px;
+    animation: borderFade 2s ease-out infinite;
+}
+
+@keyframes borderFade {
+    0% { box-shadow:#539091; }
+    50% { box-shadow: 10px 10px #539091 ; }
+    100% { box-shadow: #539091; }
 }
 
 footer {
     visibility: hidden;
+}
+
+p {
+    font-size: 48px;
+}
+
+.fadeIn {
+    animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
