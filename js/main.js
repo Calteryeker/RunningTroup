@@ -101,7 +101,7 @@ async function cadastrar(){
         }
             
         ).then((res) => {
-            if(res.status == 400){
+            if(res.status == 409){
                 document.getElementById('error_user').innerText = "Usuário Já Existe!"
                 return
             }
@@ -253,11 +253,13 @@ async function carregarRecordes(){
     document.getElementById('ranking').style.display = 'flex'
 }
 
-async function carregarPlacar(foco){
+async function carregarPlacar(foco, solo){
     focarLoad(foco)
     const params = new URLSearchParams(window.location.search)
     let pontuation = params.get('pontuacao')
-    await verifyRecords(parseInt(pontuation))
+    if(solo){
+        await verifyRecords(parseInt(pontuation))
+    }
     document.getElementById('pontuacao').innerText = "Sua Pontuação: " + pontuation.padStart(6, '0')
 }
 
