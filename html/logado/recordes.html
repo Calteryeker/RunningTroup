@@ -13,25 +13,26 @@
     <script src="../../js/main.js"></script>
 </head>
 
-<body class="fadeIn" onload="focarLoad('inicio')">
+<body class="fadeIn" onload="carregarRecordes()">
     <button id="inicio" onclick="history.back()" class="navigate">Início</button>
     <div class="bg">
         <img src="../../images/high-score.png"></img>
         <h2>
             Recordes Pessoais
         </h2>
+        <div id="loader"></div>
+        <div id="error_load" class="error"></div>
         <div id="ranking">
             <table id="top_five">
                 <tr>
-                    <td id="1">1. XXXXXX</td>
-                    <td id="2">2. XXXXXX</td>
-                    <td id="3">3. XXXXXX</td>
-                    <td id="4">4. XXXXXX</td>
-                    <td id="5">5. XXXXXX</td>
+                    <td id="1">1. N/A</td>
+                    <td id="2">2. N/A</td>
+                    <td id="3">3. N/A</td>
+                    <td id="4">4. N/A</td>
+                    <td id="5">5. N/A</td>
                 </tr>
             </table>
         </div>
-        
     </div>
 </body>
 </html>

@@ -13,14 +13,15 @@
     <script src="../../js/main.js"></script>
 </head>
 
-<body class="fadeIn" onload="focarLoad('inicio')">
+<body class="fadeIn" onload="carregarLeaderboard()">
     <button id="inicio" onclick="history.back()" class="navigate">Início</button>
     <div class="bg">
         <img src="../../images/trophy.png"></img>
         <h2>
-            
             Placar de Líderes
         </h2>
+        <div id="loader"></div>
+        <div id="error_load" class="error"></div>
         <div id="ranking">
             <table id="top_five">
                 <tr>

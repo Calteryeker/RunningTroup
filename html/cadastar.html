@@ -13,7 +13,7 @@
     <script src="../js/main.js"></script>
 </head>
 
-<body class="fadeIn" onload="focarLoad('ipt_inicio')">
+<body class="fadeIn" onload="focarLoad('ipt_user')">
     <script>
         document.addEventListener('keydown', (e)=>{
             if(e.keyCode == 38){
@@ -22,6 +22,10 @@
             else if(e.keyCode == 40){
                 focoDown();
             }
+        })
+        document.addEventListener('submit', (e)=>{
+            e.preventDefault()
+            cadastrar()
         })
     </script>
     <button tabindex="0" class="navigate" id="inicio" onclick="history.back()">Início</button>
@@ -32,12 +36,18 @@
         </h1>
         <img src="../images/running.png" alt="Homem Correndo">
     </div>
-    <div id="form">
-        <input id="ipt_inicio" tabindex="1" class="navigate" placeholder="Usuário"></input>
-        <input tabindex="2" class="navigate" type="password" placeholder="Senha"></input>
-        <input tabindex="3" class="navigate" type="password" placeholder="Confirmar Senha"></input>
-        <button tabindex="4" class="navigate">Enviar</button>
-    </div>
+    <form action="" id="form">
+        <p id="error_user" class="error"></p>
+        <input id="ipt_user" tabindex="1" class="navigate" placeholder="Usuário" value="" onkeyup="verifyUser()"></input>
+        
+        <p id="error_pass" class="error"></p>
+        <input id="ipt_pass" tabindex="2" class="navigate" type="password" placeholder="Senha" value="" onkeyup="verifyPass()"></input>
+        
+        <p id="error_conf_pass" class="error"></p>
+        <input id="ipt_conf_pass" onkeyup="comparePass()" tabindex="3" class="navigate" type="password" placeholder="Confirmar Senha" value="" ></input>
+        
+        <button id="btn_submit" tabindex="4" class="navigate" type="submit">Enviar</button>
+    </form>
 
 </body>
 <footer><a href="https://www.flaticon.com/free-icons/run" title="run icons">Run icons created by Freepik - Flaticon</a></footer>

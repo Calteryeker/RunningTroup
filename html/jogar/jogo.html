@@ -29,10 +29,19 @@
     setTimeout(()=>{
       const params = new URLSearchParams(window.location.search)
 
+      var players_pontuations = ''
+      for(var i = 1; i <= params.get('actual'); i++){
+        players_pontuations += '&p'+i+'='+(params.get('p'+i) || params.get('pontuacao') || pontuacao) 
+      }
+
       if(params.has('num_players')){
         params.get('num_players') !== params.get('actual') ? 
-        navigate('./gameovermp.html?num_players='+params.get('num_players')+'&next='+(parseInt(params.get('actual'))+1))
-         : navigate('./mpfinal.html')
+        navigate('./gameovermp.html?pontuacao='+pontuacao
+              +'&num_players='+params.get('num_players')
+              +'&actual='+params.get('actual')
+              +'&next='+(parseInt(params.get('actual'))+1)
+              +players_pontuations)
+         : navigate('./mpfinal.html?num_players='+params.get('num_players')+players_pontuations)
 
       }
       else{

@@ -13,7 +13,7 @@
     <script src="../../js/main.js"></script>
 </head>
 
-<body class="fadeIn" onload="focarLoad('btt_jogar')">
+<body class="fadeIn" onload="carregarPlacarMP()">
   <script>
     document.addEventListener('keydown', (e)=>{
       if(e.keyCode == 37){
@@ -23,16 +23,17 @@
         focoDown();
       }
     })
+
   </script>
   <div id="results">
     <p>Fim de Jogo!</p>
     <p id="winner">Vencedor foi: Jogador X - XXXXXX</p>
     <table id="ranking">
       <tr>
-        <td id="1">1. Jogador 1 - XXXXXX</td>
-        <td id="2">2. Jogador 2 - XXXXXX</td>
-        <td id="3">3. Jogador 3 - XXXXXX</td>
-        <td id="4">4. Jogador 4 - XXXXXX</td>
+        <td id="1">Jogador 1 - XXXXXX</td>
+        <td id="2">Jogador 2 - XXXXXX</td>
+        <td id="3">Jogador 3 - XXXXXX</td>
+        <td id="4">Jogador 4 - XXXXXX</td>
       </tr>
 
     </table>

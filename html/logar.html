@@ -13,7 +13,7 @@
     <script src="../js/main.js"></script>
 </head>
 
-<body class="fadeIn" onload="focarLoad('ipt_inicio')">
+<body class="fadeIn" onload="focarLoad('ipt_user')">
     <script>
         document.addEventListener('keydown', (e)=>{
             if(e.keyCode == 38){
@@ -22,6 +22,11 @@
             else if(e.keyCode == 40){
                 focoDown();
             }
+        })
+
+        document.addEventListener('submit', (e)=>{
+            e.preventDefault()
+            logar()
         })
     </script>
     <button tabindex="0" id="inicio" class="navigate" onclick="history.back()">Início</button>
@@ -32,11 +37,12 @@
         </h1>
         <img src="../images/running.png" alt="Homem Correndo">
     </div>
-    <div id="form">
-        <input id="ipt_inicio" tabindex="1" class="navigate" placeholder="Usuário"></input>
-        <input tabindex="2" class="navigate" type="password" placeholder="Senha"></input>
-        <button tabindex="3" class="navigate" type="submit">Enviar</button>
-    </div>
+    <form id="form">
+        <p id="error_login" class="error"></p>
+        <input id="ipt_user" value="" tabindex="1" class="navigate" placeholder="Usuário"></input>
+        <input id="ipt_pass" value="" tabindex="2" class="navigate" type="password" placeholder="Senha"></input>
+        <button id="btn_submit" tabindex="3" class="navigate" type="submit">Enviar</button>
+    </form>
     
 </body>
 <footer><a href="https://www.flaticon.com/free-icons/run" title="run icons">Run icons created by Freepik - Flaticon</a></footer>

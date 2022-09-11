@@ -50,9 +50,9 @@ body {
 }
 
 @keyframes borderFade {
-    0% { box-shadow:#539091; }
-    50% { box-shadow: 10px 10px #539091 ; }
-    100% { box-shadow: #539091; }
+    0% { border: #000000 solid 5px;; }
+    50% { border: #000000 solid 15px; }
+    100% { border: #000000 solid 5px;; }
 }
 
 footer {
@@ -70,4 +70,25 @@ p {
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
+}
+
+#loader{
+    width: 50px;
+    height: 50px;
+    border:#FFFFFF solid 20px;
+    border-top-color: #559091;
+    border-radius: 50%;
+    transform: rotate(0turn) scale(2);
+    animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+    to{
+        transform: rotate(1turn) scale(2);
+    }
+}
+
+.error {
+    color: #FF0000;
+    font-size: 1.5em;
 }

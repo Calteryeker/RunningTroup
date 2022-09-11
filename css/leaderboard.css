@@ -7,7 +7,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url("./images/running.png");
     
 }
 
@@ -45,7 +44,7 @@ body {
     left: 10px;
 
     height: 75px;
-    width: 90px;
+    width: 120px;
     margin: 5px;
 
     text-align: center;
@@ -53,7 +52,7 @@ body {
 }
 
 #ranking{
-    display: flex;
+    display: none;
     flex-direction: row;
     font-size: 2.5em;
     width: 100%;
@@ -66,3 +65,5 @@ body {
 td {
     display: block;
 }
+
+

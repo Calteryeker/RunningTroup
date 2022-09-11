@@ -13,17 +13,23 @@
     <script src="../../js/main.js"></script>
 </head>
 
-<body class="fadeIn" onload="focarLoad('btt_proximo')">
+<body class="fadeIn" onload="carregarPlacar('btt_proximo')">
   <script>
     function nextPlayer(){
       const params = new URLSearchParams(window.location.search)
-
-      navigate('./jogo.html?num_players='+params.get('num_players')+'&actual='+params.get('next'))
+      var players_pontuations = ''
+      for(var i = 1; i <= params.get('actual'); i++){
+        players_pontuations += '&p'+i+'='+(params.get('p'+i) || params.get('pontuacao')) 
+      }
+      navigate('./jogo.html?num_players='+params.get('num_players')
+              +'&actual='+params.get('next')+
+              players_pontuations
+              )
     }
   </script>
   <div id="results">
     <p>Você Perdeu!</p>
-    <p id="pontuação">Sua pontuação: XXXXXX</p>
+    <p id="pontuacao">Sua pontuação: XXXXXX</p>
     <div id="botoes">
       <button id="btt_proximo" class="navigate" onclick="nextPlayer()">Próximo</button>
     </div>
