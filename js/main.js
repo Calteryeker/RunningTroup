@@ -79,6 +79,7 @@ async function logar(){
 function logout(){
     document.cookie = 'user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/'
     document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/'
+    document.cookie = 'date=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/'
     window.location.assign('../semLogin/iniciar.html')
 }
 
@@ -199,13 +200,19 @@ function gameOver(pontuacao){
 async function verifyRecords(pontuacao){
     var best_pontuation = 0
     const recordes = user.recordes
-    const worsts = recordes.filter((recorde)=>{
-        return recorde < pontuacao
-    })
-    if(worsts.length > 0){
-        best_pontuation = pontuacao
+    if(recordes.length != 0){
+        const worsts = recordes.filter((recorde)=>{
+            return recorde < pontuacao
+        })
+        if(worsts.length > 0){
+            best_pontuation = pontuacao
+        }
+        best_pontuation != 0 ? salvarPlacar(best_pontuation) : undefined
     }
-    best_pontuation != 0 ? salvarPlacar(best_pontuation) : undefined
+    else{
+        salvarPlacar(pontuacao)
+    }
+    
 }
 
 async function carregarLeaderboard(){
@@ -258,6 +265,7 @@ async function carregarPlacar(foco, solo){
     const params = new URLSearchParams(window.location.search)
     let pontuation = params.get('pontuacao')
     if(solo){
+        console.log('novo recorde')
         await verifyRecords(parseInt(pontuation))
     }
     document.getElementById('pontuacao').innerText = "Sua Pontuação: " + pontuation.padStart(6, '0')
