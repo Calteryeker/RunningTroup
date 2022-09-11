@@ -1,3 +1,7 @@
+const token = document.cookie.split('; ').find((string) => string.startsWith('token='))?.split('=')[1]
+const user = document.cookie ? JSON.parse(document.cookie.split('; ').find((string) => string.startsWith('user='))?.split('=')[1]) : undefined
+const date = document.cookie.split('; ').find((string) => string.startsWith('date='))?.split('=')[1]
+
 function focarLoad(id){
     document.getElementById(id).focus()
 }
@@ -61,9 +65,8 @@ async function logar(){
                 tomorrow.setDate(tomorrow.getDate() + 1);
 
                 document.cookie = 'user='+JSON.stringify(user)+'; expires='+tomorrow+'; path=/'
-
-                
                 document.cookie = 'token='+token+'; expires='+tomorrow+'; path=/'
+                document.cookie = 'date='+tomorrow+'; expires='+tomorrow+'; path=/'
                 
                 window.location.assign('./logado/iniciar.html')
             })
@@ -74,8 +77,8 @@ async function logar(){
 }
 
 function logout(){
-    document.cookie = 'user=; expires=Thu, 01 Jan 1970 00:00:00 UTC'
-    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC'
+    document.cookie = 'user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/'
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/'
     window.location.assign('../semLogin/iniciar.html')
 }
 
@@ -181,7 +184,12 @@ async function salvarPlacar(pontuacao){
         })
     }
         
-    ).then()
+    ).then(async (res) => {
+        await res.json().then((data) => {
+            user.recordes = data
+            document.cookie = 'user='+JSON.stringify(user)+'; expires='+date+'; path=/'
+        })
+    })
 }
 
 function gameOver(pontuacao){
@@ -190,41 +198,16 @@ function gameOver(pontuacao){
 
 async function verifyRecords(pontuacao){
     var best_pontuation = 0
-    await fetch(base_url_backend+'user', {
-        method: 'GET',
-        headers: {
-            'Content-Type':'application/json',
-            'Authorizathion': 'Bearer '+ token
-        },
-    }
-        
-    ).then(async (res) => {
-        if(res.status == 400){
-            return
-        }
-        else{
-            await res.json().then((data) =>{
-                const recordes = data.user.recordes
-                const worsts = recordes.filter((recorde)=>{
-                    return recorde < pontuacao
-                })
-                if(worsts.length > 0){
-                    best_pontuation = pontuacao
-                }
-                    
-            })
-
-        }
-       
-        console.log(best_pontuation)
+    const recordes = user.recordes
+    const worsts = recordes.filter((recorde)=>{
+        return recorde < pontuacao
     })
-
-    
+    if(worsts.length > 0){
+        best_pontuation = pontuacao
+    }
     best_pontuation != 0 ? salvarPlacar(best_pontuation) : undefined
 }
 
-const token = document.cookie.split('; ').find((string) => string.startsWith('token='))?.split('=')[1] || 
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMThlOTJlN2U3MjRkYWU0OWQ4NTk2OCIsImlhdCI6MTY2MjkxODQzOSwiZXhwIjoxNjYzMDA0ODM5fQ.aPT87ixS41qEdnKKNt14YQC9vm6xr0O05RWk1mJKof8"
 async function carregarLeaderboard(){
     focarLoad('inicio')
     await fetch(base_url_backend+'leaderboard', {
@@ -256,31 +239,18 @@ async function carregarLeaderboard(){
 
 async function carregarRecordes(){
     focarLoad('inicio')
-    await fetch(base_url_backend+'user', {
-        method: 'GET',
-        headers: {
-            'Content-Type':'application/json',
-            'Authorizathion': 'Bearer '+ token
-        },
-    }
-        
-    ).then((res) => {
-        if(res.status == 400){
-            document.getElementById('error_load').innerText = "Falha ao carregar Recordes!"
-            return
+
+    for(var i = 1; (i-1) < 5; i++){
+        if (user.recordes[i-1]){
+            document.getElementById(''+i).innerText = ''+i+'º. '+(user.recordes[i-1].toString().padStart(6, '0'))
         }
         else{
-            res.json().then((data) =>{
-                const recordes = data.user.recordes
-                for(var i = 1; (i-1) < 5; i++){
-                    document.getElementById(''+i).innerText = ''+i+'º. '+(recordes[i-1].toString().padStart(6, '0') || 'N/A')
-                }
-                document.getElementById('loader').style.display = 'none'
-                document.getElementById('ranking').style.display = 'flex'
-            })
+            document.getElementById(''+i).innerText = ''+i+'º. N/A'
         }
-       
-    })
+        
+    }
+    document.getElementById('loader').style.display = 'none'
+    document.getElementById('ranking').style.display = 'flex'
 }
 
 async function carregarPlacar(foco){
