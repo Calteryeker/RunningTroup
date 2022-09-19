@@ -15,7 +15,7 @@ body {
     padding: 10px;
 
     width: 80vw;
-    height: 70vh;
+    height: 75vh;
     text-align: center;
     font-size: 2em;
     border: #5590A2 solid 3px;
@@ -30,7 +30,7 @@ body {
 
 .bg h2 {
     display: inline;
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
 .bg img{
@@ -54,7 +54,7 @@ body {
 #ranking{
     display: none;
     flex-direction: row;
-    font-size: 2.5em;
+    font-size: 1.7em;
     width: 100%;
     justify-content: space-around;
     color:  white;
