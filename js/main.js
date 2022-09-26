@@ -263,8 +263,8 @@ async function carregarRecordes(){
 async function carregarPlacar(foco, solo){
     focarLoad(foco)
     const params = new URLSearchParams(window.location.search)
-    let pontuation = params.get('pontuacao')
-    if(solo && document.token){
+    const pontuation = params.get('pontuacao')
+    if(solo && document.cookie != undefined){
         await verifyRecords(parseInt(pontuation))
     }
     document.getElementById('pontuacao').innerText = "Sua Pontuação: " + pontuation.padStart(6, '0')

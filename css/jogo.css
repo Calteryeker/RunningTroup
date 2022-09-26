@@ -87,33 +87,38 @@ body {
     background-image: url('../images/barrier.png');
     background-repeat: no-repeat;
     background-size: 10vw 25vh;
+    background-position: center;
     width: 7vw;
     height: 20vh;
 
-    left: 78vw;
-    top: 70vh;
+    left: 90vw;
+    top: 71vh;
 }
 
 #pedras{
-    background-color: gray;
     background-image: url('../images/rocks.png');
+    background-repeat: no-repeat;
+    background-size: 8vw 16vh;
+    background-position: center;
     width: 5vw;
     height: 15vh;
 
-    left: 80vw;
-    top:75vh;
+    left: 90vw;
+    top:76vh;
     z-index: 1;
 
 }
 
 #lixeira{
-    background-color: green;
     background-image: url('../images/trash_can.png');
+    background-repeat: no-repeat;
+    background-size: 10vw 15vh;
+    background-position: center;
     width: 3vw;
     height: 10vh;
 
-    left: 82vw;
-    top: 80vh;
+    left: 90vw;
+    top: 81vh;
     z-index: 2;
 }
 
