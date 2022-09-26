@@ -14,48 +14,143 @@
 </head>
 
 <body onload="focarLoad('personagem')">
-  <script>
-    var canJump = true;
-    document.addEventListener('keydown', (e)=>{
-      if((e.keyCode == 38 || e.keyCode == 13) && canJump){
-        canJump = false;
-        pular();
-        setTimeout(() => {
-          canJump = true;
-        }, 1000)
-      }
-    })
-
-    setTimeout(()=>{
-      const params = new URLSearchParams(window.location.search)
-
-      var players_pontuations = ''
-      for(var i = 1; i <= params.get('actual'); i++){
-        players_pontuations += '&p'+i+'='+(params.get('p'+i) || params.get('pontuacao') || pontuacao) 
-      }
-
-      if(params.has('num_players')){
-        params.get('num_players') !== params.get('actual') ? 
-        navigate('./gameovermp.html?pontuacao='+pontuacao
-              +'&num_players='+params.get('num_players')
-              +'&actual='+params.get('actual')
-              +'&next='+(parseInt(params.get('actual'))+1)
-              +players_pontuations)
-         : navigate('./mpfinal.html?num_players='+params.get('num_players')+players_pontuations)
-
-      }
-      else{
-        navigate('./gameover.html?pontuacao='+pontuacao)
-      }
-      
-    }, 5000)
-</script>
   <div id="jogo">
     <p id="placar">Pontuação: 000000</p>
     <div id="personagem"></div>
     <div id="lixeira"></div>
     <div id="pedras"></div>
     <div id="barreira"></div>
+    <script>
+      const player = document.getElementById("personagem");
+      const lixeira = document.getElementById("lixeira");
+      const barreira = document.getElementById("barreira");
+      const pedras = document.getElementById("pedras");
+      setTimeout(nextObstacle(), 2000)
+  
+      var canJump = true;
+      document.addEventListener('keydown', (e)=>{
+        if((e.keyCode == 38 || e.keyCode == 13) && canJump){
+          canJump = false;
+          pular();
+          setTimeout(() => {
+            canJump = true;
+          }, 1000)
+        }
+      })
+
+      function gameOver(){
+        const params = new URLSearchParams(window.location.search)
+  
+        var players_pontuations = ''
+        for(var i = 1; i <= params.get('actual'); i++){
+          players_pontuations += '&p'+i+'='+(params.get('p'+i) || params.get('pontuacao') || pontuacao) 
+        }
+  
+        if(params.has('num_players')){
+          params.get('num_players') !== params.get('actual') ? 
+          navigate('./gameovermp.html?pontuacao='+pontuacao
+                +'&num_players='+params.get('num_players')
+                +'&actual='+params.get('actual')
+                +'&next='+(parseInt(params.get('actual'))+1)
+                +players_pontuations)
+           : navigate('./mpfinal.html?num_players='+params.get('num_players')+players_pontuations)
+  
+        }
+        else{
+          navigate('./gameover.html?pontuacao='+pontuacao)
+        }
+        
+      }
+  
+      //verificar se Gameover
+      setInterval(() =>{
+        const playerJumpHeight = parseFloat(window.getComputedStyle(player).bottom.replace('vh', ''));
+        const lixeiraPosition = lixeira.offsetLeft;
+        const barreiraPosition = barreira.offsetLeft;
+        const pedrasPosition = pedras.offsetLeft;
+  
+        if((lixeiraPosition <= 11 && lixeiraPosition > 0 && playerJumpHeight < 10)
+          || (barreiraPosition <= 11 && barreiraPosition > 0 && playerJumpHeight < 20)
+          || (pedrasPosition <= 11 && pedrasPosition > 0 && playerJumpHeight < 15)){
+          
+          player.style.animation = 'none';
+          player.style.bottom = `${playerJumpHeight}vh`
+  
+          lixeira.style.animation = 'none';
+          lixeira.style.bottom = `${lixeiraPosition}vw`
+  
+          barreira.style.animation = 'none';
+          barreira.style.bottom = `${barreiraPosition}vh`
+  
+          pedras.style.animation = 'none';
+          pedras.style.bottom = `${pedrasPosition}vh`
+  
+          gameOver()
+        }
+      }, 10)
+  
+      function nextObstacle(){
+        const numObstacle = Math.floor(Math.random() * 3)
+        const passObstacle = (obstacle)=>{
+          if(pontuacao > 4000){
+            obstacle.classList.add('animar_dificil');
+            setTimeout(()=>{
+              obstacle.classList.remove('animar_dificil');
+              nextObstacle()
+            }, 1000)
+          }
+          else if(pontuacao > 3000){
+            obstacle.classList.add('animar_medio_2');
+            setTimeout(()=>{
+              obstacle.classList.remove('animar_medio_2');
+              nextObstacle()
+            }, 1500)
+          }
+          else if(pontuacao > 2000){
+            obstacle.classList.add('animar_medio_1');
+            setTimeout(()=>{
+              obstacle.classList.remove('animar_medio_1');
+              nextObstacle()
+            }, 2000)
+          }
+          else if(pontuacao > 1000){
+            obstacle.classList.add('animar_facil_2');
+            setTimeout(()=>{
+              obstacle.classList.remove('animar_facil_2');
+              nextObstacle()
+            }, 2500)
+          }
+          else{
+            console.log(pedras)
+            obstacle.classList.add('animar_facil_1');
+            setTimeout(()=>{
+              obstacle.classList.remove('animar_facil_1');
+              nextObstacle()
+            }, 3000)
+          }
+  
+        }
+  
+        switch (numObstacle){
+          case 0:{
+            passObstacle(pedras)
+            break;
+          }
+          
+          case 1:{
+            passObstacle(lixeira)
+            break;
+          }
+          
+          case 2:{
+            passObstacle(barreira)
+            break;
+          }
+          
+        }
+      }
+  
+  </script>
   </div>
 
 </body>

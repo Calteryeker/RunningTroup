@@ -42,54 +42,61 @@ body {
     width: 8vw;
     height: 20vh;
 
-    top: 70vh;
-    left: 1vw;
+    bottom: 0vh;
+    left: 3vw;
 }
 
 .pulo{
-    animation: pulo 1000ms linear;
+    animation: pulo 1000ms ease-out;
 }
 @keyframes pulo {
     0% {
-        top: 70vh;
+        bottom: 0vh;
+    }
+    40%{
+        bottom: 25vh;
     }
     50%{
-        top: 25vh;
+        bottom: 25vh;
     }   
+    60%{
+        bottom: 25vh;
+    }
     100%{
-        top: 70vh;
+        bottom: 0vh;
     }
 }
 
-.animar_fácil_1{
+.animar_facil_1{
     animation: obstaculo 3s infinite linear;
 }
-.animar_fácil_2{
+.animar_facil_2{
     animation: obstaculo 2.5s infinite linear;
 }
-.animar_médio_1{
+.animar_medio_1{
     animation: obstaculo 2s infinite linear;
 }
-.animar_médio_2{
+.animar_medio_2{
     animation: obstaculo 1.5s infinite linear;
 }
-.animar_díficil{
+.animar_dificil{
     animation: obstaculo 1s infinite linear;
 }
 
 #barreira{
-    background-color: blue;
+    background-image: url('../images/barrier.png');
+    background-repeat: no-repeat;
+    background-size: 10vw 25vh;
     width: 7vw;
     height: 20vh;
 
     left: 78vw;
     top: 70vh;
-
-    animation: obstaculo 3s infinite linear;
 }
 
 #pedras{
     background-color: gray;
+    background-image: url('../images/rocks.png');
     width: 5vw;
     height: 15vh;
 
@@ -97,21 +104,17 @@ body {
     top:75vh;
     z-index: 1;
 
-    animation: obstaculo 2s infinite linear;
-
 }
 
 #lixeira{
     background-color: green;
+    background-image: url('../images/trash_can.png');
     width: 3vw;
     height: 10vh;
 
     left: 82vw;
     top: 80vh;
     z-index: 2;
-
-    animation: obstaculo 1s infinite linear;
-
 }
 
 @keyframes obstaculo {
