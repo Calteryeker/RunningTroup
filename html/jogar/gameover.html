@@ -14,24 +14,26 @@
 </head>
 
 <body class="fadeIn" onload="carregarPlacar('btt_jogar', true)">
-  <script>
-    document.addEventListener('keydown', (e)=>{
-        if(e.keyCode == 37){
-            focoUp();
-        }
-        else if(e.keyCode == 39){
-            focoDown();
-        }
-    })
-</script>
-  <div id="results">
-    <p>Você Perdeu!</p>
-    <p id="pontuacao">Sua pontuação: XXXXXX</p>
-    <div id="botoes">
-      <button tabindex="0" class="navigate" onclick="returnStart()">Início</button>
-      <button id="btt_jogar" tabindex="1" class="navigate" onclick="navigate('./jogo.html')">Jogar Novamente</button>
+    <script>
+        document.addEventListener('keydown', (e)=>{
+            if(e.keyCode == 37){
+                focoUp();
+            }
+            else if(e.keyCode == 39){
+                focoDown();
+            }
+        })
+    </script>
+    <div id="results">
+        <p>Você Perdeu!</p>
+        <p id="pontuacao">Sua pontuação: XXXXXX</p>
+        <div id="botoes">
+            <button tabindex="0" class="navigate" onclick="returnStart()">Início</button>
+            <button id="btt_jogar" tabindex="1" class="navigate" onclick="navigate('./jogo.html')">Jogar Novamente</button>
+        </div>
     </div>
-  </div>
+
+    <audio id="music" src="../../sounds/running_troup_theme.mp3" preload loop autoplay></audio>
 
 </body>
 <footer><a href="https://www.flaticon.com/free-icons/run" title="run icons">Run icons created by Freepik - Flaticon</a></footer>

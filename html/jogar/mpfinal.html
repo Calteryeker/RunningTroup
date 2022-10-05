@@ -14,34 +14,36 @@
 </head>
 
 <body class="fadeIn" onload="carregarPlacarMP()">
-  <script>
-    document.addEventListener('keydown', (e)=>{
-      if(e.keyCode == 37){
-        focoUp();
-      }
-      else if(e.keyCode == 39){
-        focoDown();
-      }
-    })
+    <script>
+        document.addEventListener('keydown', (e)=>{
+            if(e.keyCode == 37){
+            focoUp();
+            }
+            else if(e.keyCode == 39){
+            focoDown();
+            }
+        })
 
-  </script>
-  <div id="results">
-    <p>Fim de Jogo!</p>
-    <p id="winner">Vencedor foi: Jogador X - XXXXXX</p>
-    <table id="ranking">
-      <tr>
-        <td id="1">Jogador 1 - XXXXXX</td>
-        <td id="2">Jogador 2 - XXXXXX</td>
-        <td id="3">Jogador 3 - XXXXXX</td>
-        <td id="4">Jogador 4 - XXXXXX</td>
-      </tr>
+    </script>
+    <div id="results">
+        <p>Fim de Jogo!</p>
+        <p id="winner">Vencedor foi: Jogador X - XXXXXX</p>
+        <table id="ranking">
+            <tr>
+            <td id="1">Jogador 1 - XXXXXX</td>
+            <td id="2">Jogador 2 - XXXXXX</td>
+            <td id="3">Jogador 3 - XXXXXX</td>
+            <td id="4">Jogador 4 - XXXXXX</td>
+            </tr>
 
-    </table>
-    <div id="botoes">
-      <button tabindex="0" class="navigate" onclick="returnStart()">Início</button>
-      <button id="btt_jogar" tabindex="1" class="navigate" onclick="navigate('./num_players.html')">Jogar Novamente</button>
+        </table>
+        <div id="botoes">
+            <button tabindex="0" class="navigate" onclick="returnStart()">Início</button>
+            <button id="btt_jogar" tabindex="1" class="navigate" onclick="navigate('./num_players.html')">Jogar Novamente</button>
+        </div>
     </div>
-  </div>
+
+    <audio id="music" src="../../sounds/running_troup_theme.mp3" preload loop autoplay></audio>
 
 </body>
 <footer><a href="https://www.flaticon.com/free-icons/run" title="run icons">Run icons created by Freepik - Flaticon</a></footer>

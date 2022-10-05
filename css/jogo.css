@@ -38,32 +38,322 @@ body {
 
 #personagem{
     position: absolute;
-    background-color: red;
-    width: 8vw;
+    width: 10vw;
     height: 20vh;
 
-    bottom: 0vh;
+    bottom: -4.5vh;
     left: 3vw;
+
+    background-size: 450px 450px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.pulo{
-    animation: pulo 1000ms ease-out;
+.player_1{
+    background-image: url('../images/player/1/idle/1_idle.png');
 }
-@keyframes pulo {
+.run_1{
+    animation: run_1 450ms infinite linear;
+}
+@keyframes run_1 {
+    0% {
+        background-image: url('../images/player/1/run/1_run_0.png');
+    }
+    14.3%{
+        background-image: url('../images/player/1/run/1_run_1.png');
+    }
+    28.6%{
+        background-image: url('../images/player/1/run/1_run_2.png');
+    }
+    42.9%{
+        background-image: url('../images/player/1/run/1_run_3.png');
+    }
+    57.2%{
+        background-image: url('../images/player/1/run/1_run_4.png');
+    }
+    71.5%{
+        background-image: url('../images/player/1/run/1_run_5.png');
+    }   
+    85.8%{
+        background-image: url('../images/player/1/run/1_run_6.png');
+    }
+    100%{
+        background-image: url('../images/player/1/run/1_run_7.png');
+    }
+}
+
+.player_2{
+    background-image: url('../images/player/2/idle/2_idle.png');
+}
+.run_2{
+    animation: run_2 450ms  infinite linear;
+}
+@keyframes run_2 {
+    0% {
+        background-image: url('../images/player/2/run/2_run_0.png');
+    }
+    14.3%{
+        background-image: url('../images/player/2/run/2_run_1.png');
+    }
+    28.6%{
+        background-image: url('../images/player/2/run/2_run_2.png');
+    }
+    42.9%{
+        background-image: url('../images/player/2/run/2_run_3.png');
+    }
+    57.2%{
+        background-image: url('../images/player/2/run/2_run_4.png');
+    }
+    71.5%{
+        background-image: url('../images/player/2/run/2_run_5.png');
+    }   
+    85.8%{
+        background-image: url('../images/player/2/run/2_run_6.png');
+    }
+    100%{
+        background-image: url('../images/player/2/run/2_run_7.png');
+    }
+}
+
+.player_3{
+    background-image: url('../images/player/3/idle/3_idle.png');
+}
+.run_3{
+    animation: run_3 450ms infinite linear;
+}
+@keyframes run_3 {
+    0% {
+        background-image: url('../images/player/3/run/3_run_0.png');
+    }
+    14.3%{
+        background-image: url('../images/player/3/run/3_run_1.png');
+    }
+    28.6%{
+        background-image: url('../images/player/3/run/3_run_2.png');
+    }
+    42.9%{
+        background-image: url('../images/player/3/run/3_run_3.png');
+    }
+    57.2%{
+        background-image: url('../images/player/3/run/3_run_4.png');
+    }
+    71.5%{
+        background-image: url('../images/player/3/run/3_run_5.png');
+    }   
+    85.8%{
+        background-image: url('../images/player/3/run/3_run_6.png');
+    }
+    100%{
+        background-image: url('../images/player/3/run/3_run_7.png');
+    }
+}
+
+.player_4{
+    background-image: url('../images/player/4/idle/4_idle.png');
+}
+.run_4{
+    animation: run_4 450ms infinite linear;
+}
+@keyframes run_4 {
+    0% {
+        background-image: url('../images/player/4/run/4_run_0.png');
+    }
+    14.3%{
+        background-image: url('../images/player/4/run/4_run_1.png');
+    }
+    28.6%{
+        background-image: url('../images/player/4/run/4_run_2.png');
+    }
+    42.9%{
+        background-image: url('../images/player/4/run/4_run_3.png');
+    }
+    57.2%{
+        background-image: url('../images/player/4/run/4_run_4.png');
+    }
+    71.5%{
+        background-image: url('../images/player/4/run/4_run_5.png');
+    }   
+    85.8%{
+        background-image: url('../images/player/4/run/4_run_6.png');
+    }
+    100%{
+        background-image: url('../images/player/4/run/4_run_7.png');
+    }
+}
+
+.pulo_1{
+    animation: pulo_1 1000ms ease-out;
+}
+@keyframes pulo_1 {
     0% {
         bottom: 0vh;
+        background-image: url('../images/player/1/jump/1_jump_0.png');
+    }
+    10%{
+        background-image: url('../images/player/1/jump/1_jump_1.png');
+    }
+    20%{
+        background-image: url('../images/player/1/jump/1_jump_0.png');
+    }
+    30%{
+        background-image: url('../images/player/1/jump/1_jump_1.png');
     }
     40%{
         bottom: 25vh;
+        background-image: url('../images/player/1/jump/1_jump_0.png');
     }
     50%{
         bottom: 25vh;
+        background-image: url('../images/player/1/jump/1_jump_1.png');
     }   
     60%{
         bottom: 25vh;
+        background-image: url('../images/player/1/fall/1_fall_0.png');
+    }
+    70%{
+        background-image: url('../images/player/1/fall/1_fall_1.png');
+    }
+    80%{
+        background-image: url('../images/player/1/fall/1_fall_0.png');
+    }
+    90%{
+        background-image: url('../images/player/1/fall/1_fall_1.png');
     }
     100%{
+        bottom: -3vh;
+        background-image: url('../images/player/1/idle/1_idle.png');
+    }
+}
+
+.pulo_2{
+    animation: pulo_2 1000ms ease-out;
+}
+@keyframes pulo_2 {
+    0% {
         bottom: 0vh;
+        background-image: url('../images/player/2/jump/2_jump_0.png');
+    }
+    10%{
+        background-image: url('../images/player/2/jump/2_jump_1.png');
+    }
+    20%{
+        background-image: url('../images/player/2/jump/2_jump_0.png');
+    }
+    30%{
+        background-image: url('../images/player/2/jump/2_jump_1.png');
+    }
+    40%{
+        bottom: 25vh;
+        background-image: url('../images/player/2/jump/2_jump_0.png');
+    }
+    50%{
+        bottom: 25vh;
+        background-image: url('../images/player/2/jump/2_jump_1.png');
+    }   
+    60%{
+        bottom: 25vh;
+        background-image: url('../images/player/2/fall/2_fall_0.png');
+    }
+    70%{
+        background-image: url('../images/player/2/fall/2_fall_1.png');
+    }
+    80%{
+        background-image: url('../images/player/2/fall/2_fall_0.png');
+    }
+    90%{
+        background-image: url('../images/player/2/fall/2_fall_1.png');
+    }
+    100%{
+        bottom: -3vh;
+        background-image: url('../images/player/2/idle/2_idle.png');
+    }
+}
+
+.pulo_3{
+    animation: pulo_3 1000ms ease-out;
+}
+@keyframes pulo_3 {
+    0% {
+        bottom: 0vh;
+        background-image: url('../images/player/3/jump/3_jump_0.png');
+    }
+    10%{
+        background-image: url('../images/player/3/jump/3_jump_1.png');
+    }
+    20%{
+        background-image: url('../images/player/3/jump/3_jump_0.png');
+    }
+    30%{
+        background-image: url('../images/player/3/jump/3_jump_1.png');
+    }
+    40%{
+        bottom: 25vh;
+        background-image: url('../images/player/3/jump/3_jump_0.png');
+    }
+    50%{
+        bottom: 25vh;
+        background-image: url('../images/player/3/jump/3_jump_1.png');
+    }   
+    60%{
+        bottom: 25vh;
+        background-image: url('../images/player/3/fall/3_fall_0.png');
+    }
+    70%{
+        background-image: url('../images/player/3/fall/3_fall_1.png');
+    }
+    80%{
+        background-image: url('../images/player/3/fall/3_fall_0.png');
+    }
+    90%{
+        background-image: url('../images/player/3/fall/3_fall_1.png');
+    }
+    100%{
+        bottom: -3vh;
+        background-image: url('../images/player/3/idle/3_idle.png');
+    }
+}
+
+.pulo_4{
+    animation: pulo_4 1000ms ease-out;
+}
+@keyframes pulo_4 {
+    0% {
+        bottom: 0vh;
+        background-image: url('../images/player/4/jump/4_jump_0.png');
+    }
+    10%{
+        background-image: url('../images/player/4/jump/4_jump_1.png');
+    }
+    20%{
+        background-image: url('../images/player/4/jump/4_jump_0.png');
+    }
+    30%{
+        background-image: url('../images/player/4/jump/4_jump_1.png');
+    }
+    40%{
+        bottom: 25vh;
+        background-image: url('../images/player/4/jump/4_jump_0.png');
+    }
+    50%{
+        bottom: 25vh;
+        background-image: url('../images/player/4/jump/4_jump_1.png');
+    }   
+    60%{
+        bottom: 25vh;
+        background-image: url('../images/player/4/fall/4_fall_0.png');
+    }
+    70%{
+        background-image: url('../images/player/4/fall/4_fall_1.png');
+    }
+    80%{
+        background-image: url('../images/player/4/fall/4_fall_0.png');
+    }
+    90%{
+        background-image: url('../images/player/4/fall/4_fall_1.png');
+    }
+    100%{
+        bottom: -3vh;
+        background-image: url('../images/player/4/idle/4_idle.png');
     }
 }
 

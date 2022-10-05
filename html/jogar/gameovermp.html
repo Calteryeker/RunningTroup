@@ -14,26 +14,28 @@
 </head>
 
 <body class="fadeIn" onload="carregarPlacar('btt_proximo', false)">
-  <script>
-    function nextPlayer(){
-      const params = new URLSearchParams(window.location.search)
-      var players_pontuations = ''
-      for(var i = 1; i <= params.get('actual'); i++){
-        players_pontuations += '&p'+i+'='+(params.get('p'+i) || params.get('pontuacao')) 
-      }
-      navigate('./jogo.html?num_players='+params.get('num_players')
-              +'&actual='+params.get('next')+
-              players_pontuations
-              )
-    }
-  </script>
-  <div id="results">
+    <script>
+        function nextPlayer(){
+            const params = new URLSearchParams(window.location.search)
+            var players_pontuations = ''
+            for(var i = 1; i <= params.get('actual'); i++){
+            players_pontuations += '&p'+i+'='+(params.get('p'+i) || params.get('pontuacao')) 
+            }
+            navigate('./jogo.html?num_players='+params.get('num_players')
+                    +'&actual='+params.get('next')+
+                    players_pontuations
+                    )
+        }
+    </script>
+    <div id="results">
     <p>Você Perdeu!</p>
     <p id="pontuacao">Sua pontuação: XXXXXX</p>
     <div id="botoes">
-      <button id="btt_proximo" class="navigate" onclick="nextPlayer()">Próximo</button>
+        <button id="btt_proximo" class="navigate" onclick="nextPlayer()">Próximo</button>
     </div>
-  </div>
+    </div>
+
+    <audio id="music" src="../../sounds/running_troup_theme.mp3" preload loop autoplay></audio>
 
 </body>
 <footer><a href="https://www.flaticon.com/free-icons/run" title="run icons">Run icons created by Freepik - Flaticon</a></footer>

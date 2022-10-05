@@ -2,8 +2,45 @@ const token = document.cookie.split('; ').find((string) => string.startsWith('to
 const user = document.cookie ? JSON.parse(document.cookie.split('; ').find((string) => string.startsWith('user='))?.split('=')[1]) : undefined
 const date = document.cookie.split('; ').find((string) => string.startsWith('date='))?.split('=')[1]
 
+function toggleMusic(){
+    const music_player = document.getElementById('music')
+    if (window.localStorage.getItem('music') == 'off'){
+        document.getElementById('muted').style.display = 'none'
+        document.getElementById('sound').style.display = 'block'
+        window.localStorage.setItem('music', 'on')
+        music_player.play();   
+    }
+    else{
+        document.getElementById('muted').style.display = 'block'
+        document.getElementById('sound').style.display = 'none'
+        window.localStorage.setItem('music', 'off')
+        music_player.pause();
+
+    }
+}
+
 function focarLoad(id){
     document.getElementById(id).focus()
+    let music_player = document.getElementById('music')
+    let music = window.localStorage.getItem('music')
+
+    if(music == 'off'){
+        music_player.pause()
+
+        if(document.getElementById('sound_control') != null){
+            document.getElementById('muted').style.display = 'block'
+            document.getElementById('sound').style.display = 'none'
+        } 
+    }
+    else{
+        if(document.getElementById('sound_control') != null){
+            document.getElementById('muted').style.display = 'none'
+            document.getElementById('sound').style.display = 'block'
+        }
+        music_player.play()
+    }
+
+    
 }
 
 
@@ -264,7 +301,7 @@ async function carregarPlacar(foco, solo){
     focarLoad(foco)
     const params = new URLSearchParams(window.location.search)
     const pontuation = params.get('pontuacao')
-    if(solo && document.cookie != undefined){
+    if(solo && user != undefined){
         await verifyRecords(parseInt(pontuation))
     }
     document.getElementById('pontuacao').innerText = "Sua Pontuação: " + pontuation.padStart(6, '0')

@@ -36,6 +36,12 @@
         <button tabindex="1" onclick="navigate('../logar.html')" class="navigate">Logar</button>
         <button id="btt_jogar" tabindex="2" onclick="navigate('../jogar/modo.html')" class="navigate">Jogar</button>
     </div>
+    <button id="sound_control" tabindex="3" class='navigate' onclick="toggleMusic()">
+        <img id="sound" src="../../images/sound.png">
+        <img id="muted" src="../../images/muted.png">
+    </button>
+    
+    <audio id="music" src="../../sounds/running_troup_theme.mp3" preload loop autoplay></audio>
 
 </body>
 <footer><a href="https://www.flaticon.com/free-icons/run" title="run icons">Run icons created by Freepik - Flaticon</a></footer>
