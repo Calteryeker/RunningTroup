@@ -119,63 +119,63 @@
             }, 10)
 
             function nextObstacle(){
-            const numObstacle = Math.floor(Math.random() * 3)
-            const passObstacle = (obstacle)=>{
-                if(pontuacao > 4000){
-                obstacle.classList.add('animar_dificil');
-                setTimeout(()=>{
-                    obstacle.classList.remove('animar_dificil');
-                    nextObstacle()
-                }, 1000)
-                }
-                else if(pontuacao > 3000){
-                obstacle.classList.add('animar_medio_2');
-                setTimeout(()=>{
-                    obstacle.classList.remove('animar_medio_2');
-                    nextObstacle()
-                }, 1500)
-                }
-                else if(pontuacao > 2000){
-                obstacle.classList.add('animar_medio_1');
-                setTimeout(()=>{
-                    obstacle.classList.remove('animar_medio_1');
-                    nextObstacle()
-                }, 2000)
-                }
-                else if(pontuacao > 1000){
-                obstacle.classList.add('animar_facil_2');
-                setTimeout(()=>{
-                    obstacle.classList.remove('animar_facil_2');
-                    nextObstacle()
-                }, 2500)
-                }
-                else{
-                obstacle.classList.add('animar_facil_1');
-                setTimeout(()=>{
-                    obstacle.classList.remove('animar_facil_1');
-                    nextObstacle()
-                }, 3000)
+                const numObstacle = Math.floor(Math.random() * 3)
+                const passObstacle = (obstacle)=>{
+                    if(pontuacao > 4000){
+                        obstacle.classList.add('animar_dificil');
+                        setTimeout(()=>{
+                            obstacle.classList.remove('animar_dificil');
+                            nextObstacle()
+                        }, 1000)
+                    }
+                    else if(pontuacao > 3000){
+                        obstacle.classList.add('animar_medio_2');
+                        setTimeout(()=>{
+                            obstacle.classList.remove('animar_medio_2');
+                            nextObstacle()
+                        }, 1500)
+                    }
+                    else if(pontuacao > 2000){
+                        obstacle.classList.add('animar_medio_1');
+                        setTimeout(()=>{
+                            obstacle.classList.remove('animar_medio_1');
+                            nextObstacle()
+                        }, 2000)
+                    }
+                    else if(pontuacao > 1000){
+                        obstacle.classList.add('animar_facil_2');
+                        setTimeout(()=>{
+                            obstacle.classList.remove('animar_facil_2');
+                            nextObstacle()
+                        }, 2500)
+                    }
+                    else{
+                        obstacle.classList.add('animar_facil_1');
+                        setTimeout(()=>{
+                            obstacle.classList.remove('animar_facil_1');
+                            nextObstacle()
+                        }, 3000)
+                    }
+
                 }
 
-            }
-
-            switch (numObstacle){
-                case 0:{
-                passObstacle(pedras)
-                break;
+                switch (numObstacle){
+                    case 0:{
+                    passObstacle(pedras)
+                    break;
+                    }
+                    
+                    case 1:{
+                    passObstacle(lixeira)
+                    break;
+                    }
+                    
+                    case 2:{
+                    passObstacle(barreira)
+                    break;
+                    }
+                    
                 }
-                
-                case 1:{
-                passObstacle(lixeira)
-                break;
-                }
-                
-                case 2:{
-                passObstacle(barreira)
-                break;
-                }
-                
-            }
             }
 
         </script>

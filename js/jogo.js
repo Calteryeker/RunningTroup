@@ -33,4 +33,7 @@ function pontuar(){
   document.getElementById('placar').innerText = "Pontuação:" + pontuacao.toString().padStart(6, '0')
 }
 
-setInterval(pontuar, 50)
+setTimeout(()=>{
+    setInterval(pontuar, 50)
+},2000)
+
