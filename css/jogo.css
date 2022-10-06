@@ -21,6 +21,9 @@ body {
     height: 90vh;
 
     overflow: hidden;
+    
+}
+.background-move{
     animation: background-move 6000ms infinite linear;
 }
 

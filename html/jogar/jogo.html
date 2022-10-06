@@ -48,6 +48,7 @@
                     player.classList.add('run_1')
                 }
                 run_audio.play()
+                document.getElementById('jogo').classList.add('background-move')
                 nextObstacle()
             }, 2000)
 
@@ -66,26 +67,26 @@
             })
 
             function gameOver(){
-            const params = new URLSearchParams(window.location.search)
+                const params = new URLSearchParams(window.location.search)
 
-            var players_pontuations = ''
-            for(var i = 1; i <= params.get('actual'); i++){
-                players_pontuations += '&p'+i+'='+(params.get('p'+i) || params.get('pontuacao') || pontuacao) 
-            }
+                var players_pontuations = ''
+                for(var i = 1; i <= params.get('actual'); i++){
+                    players_pontuations += '&p'+i+'='+(params.get('p'+i) || params.get('pontuacao') || pontuacao) 
+                }
 
-            if(params.has('num_players')){
-                params.get('num_players') !== params.get('actual') ? 
-                navigate('./gameovermp.html?pontuacao='+pontuacao
-                    +'&num_players='+params.get('num_players')
-                    +'&actual='+params.get('actual')
-                    +'&next='+(parseInt(params.get('actual'))+1)
-                    +players_pontuations)
-                : navigate('./mpfinal.html?num_players='+params.get('num_players')+players_pontuations)
+                if(params.has('num_players')){
+                    params.get('num_players') !== params.get('actual') ? 
+                    navigate('./gameovermp.html?pontuacao='+pontuacao
+                        +'&num_players='+params.get('num_players')
+                        +'&actual='+params.get('actual')
+                        +'&next='+(parseInt(params.get('actual'))+1)
+                        +players_pontuations)
+                    : navigate('./mpfinal.html?num_players='+params.get('num_players')+players_pontuations)
 
-            }
-            else{
-                navigate('./gameover.html?pontuacao='+pontuacao)
-            }
+                }
+                else{
+                    navigate('./gameover.html?pontuacao='+pontuacao)
+                }
             
             }
 
@@ -111,7 +112,8 @@
 
                     pedras.style.animation = 'none';
                     pedras.style.bottom = `${pedrasPosition}vh`
-
+                    
+                    document.getElementById('jogo').classList.remove('background-move')
                     gameOver()
                 }
             }, 10)
