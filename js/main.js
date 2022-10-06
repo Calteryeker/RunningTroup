@@ -40,7 +40,6 @@ function focarLoad(id){
         music_player.play()
     }
 
-    
 }
 
 

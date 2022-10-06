@@ -31,6 +31,11 @@
         </h1>
         <img src="../../images/running.png" alt="Homem Correndo">
     </div> 
+    <div id="boas_vindas">
+        <script>
+            document.getElementById('boas_vindas').innerText = "Bem-vindo " + `${user.login}!`
+        </script>
+    </div>
     <div id="botoes_group">
         <button tabindex="0" onclick="navigate('./recordes.html')" class="navigate">Meus Recordes</button>
         <button tabindex="1" onclick="navigate('./leaderboard.html')" class="navigate">Placar de Líderes</button>
